@@ -108,3 +108,4 @@ const HeroVariantB = () => {
 }
 
 export default HeroVariantB;
+

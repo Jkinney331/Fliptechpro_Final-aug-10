@@ -273,3 +273,4 @@ The system will automatically detect which domain users are visiting and show th
 2. Create new Google Analytics property for fliptech-ai.com  
 3. Test both domains thoroughly
 4. Start your campaigns with audience-specific messaging!
+

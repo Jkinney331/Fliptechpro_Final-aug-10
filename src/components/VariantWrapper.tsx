@@ -59,3 +59,4 @@ export function CompanyShowcaseVariantWrapper({ children }: { children: Record<s
 export function ContactVariantWrapper({ children }: { children: Record<string, ReactNode> }) {
   return <VariantWrapper testId="contact_section" variants={children} />;
 }
+

@@ -135,3 +135,4 @@ const PricingVariantA = () => {
 };
 
 export default PricingVariantA;
+

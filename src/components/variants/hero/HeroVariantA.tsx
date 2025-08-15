@@ -95,3 +95,4 @@ const HeroVariantA = () => {
 }
 
 export default HeroVariantA;
+

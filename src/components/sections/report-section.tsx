@@ -33,7 +33,7 @@ const ReportSection = () => {
         // Trigger the download
         const link = document.createElement('a');
         link.href = data.downloadUrl;
-        link.download = 'fliptech-ai-implementation-report.html';
+        link.download = 'FlipTech Pro Report.pdf';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);

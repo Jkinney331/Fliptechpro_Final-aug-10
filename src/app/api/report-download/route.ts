@@ -208,7 +208,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     return NextResponse.json({
       success: true,
       message: 'Report download initiated successfully!',
-      downloadUrl: '/reports/fliptech-ai-implementation-report.html',
+      downloadUrl: '/reports/FlipTech Pro Report.pdf',
     });
     
   } catch (error) {

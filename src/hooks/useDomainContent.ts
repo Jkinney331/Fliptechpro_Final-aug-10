@@ -51,3 +51,4 @@ export function useTestimonialsContent() {
   const { getContent } = useDomainContent();
   return getContent('testimonials');
 }
+
