@@ -16,12 +16,36 @@ const ReportSection = () => {
 
     setIsLoading(true);
     
-    // Simulate API call - replace with actual implementation
-    setTimeout(() => {
-      setIsSubmitted(true);
+    try {
+      const response = await fetch('/api/report-download', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsSubmitted(true);
+        
+        // Trigger the download
+        const link = document.createElement('a');
+        link.href = data.downloadUrl;
+        link.download = 'fliptech-ai-implementation-report.html';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } else {
+        alert(data.message || 'An error occurred. Please try again.');
+      }
+    } catch (error) {
+      console.error('Download error:', error);
+      alert('An error occurred while processing your request. Please try again.');
+    } finally {
       setIsLoading(false);
-      // Here you would typically trigger the download or redirect to download page
-    }, 1500);
+    }
   };
 
   if (isSubmitted) {
