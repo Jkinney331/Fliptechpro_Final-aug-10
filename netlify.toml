@@ -10,10 +10,7 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Redirects handled by Next.js plugin
 
 [context.production.environment]
   NEXT_PUBLIC_DEFAULT_DOMAIN = "fliptechpro.com"
