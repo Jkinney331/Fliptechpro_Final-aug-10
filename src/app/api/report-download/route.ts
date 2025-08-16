@@ -82,7 +82,7 @@ async function updateRateLimit(ip: string): Promise<void> {
 async function saveDownloadRecord(email: string, ip: string, userAgent?: string): Promise<void> {
   try {
     // Try to save to Supabase if configured
-    if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
+    if (process.env.NEXT_PUBLIC_SUPABASE_URL && supabase) {
       const { error } = await supabase
         .from('report_downloads')
         .insert({
@@ -117,7 +117,7 @@ async function createEmailTransporter() {
     throw new Error('Email configuration is missing');
   }
 
-  return nodemailer.createTransporter(emailConfig);
+  return nodemailer.createTransport(emailConfig);
 }
 
 async function sendDownloadConfirmationEmail(email: string): Promise<void> {
@@ -191,7 +191,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     await saveDownloadRecord(
       validatedData.email, 
       clientIp, 
-      request.headers.get('user-agent')
+      request.headers.get('user-agent') || undefined
     );
     
     // Update rate limit
